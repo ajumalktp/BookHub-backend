@@ -1,5 +1,5 @@
-const dotenv = require("dotenv");
-dotenv.config({ path: ".env" });
+const dns = require("node:dns/promises")
+dns.setServers(["8.8.8.8", "1.1.1.1"])
 const express = require("express");
 const connectDB = require("./database/db");
 const cors = require("cors");
@@ -7,6 +7,9 @@ const path = require("path");
 
 
 const app = express();
+
+const dotenv = require("dotenv");
+dotenv.config({ path: ".env" });
 // ✅ Connect to MongoDB
 connectDB();
 
